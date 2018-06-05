@@ -110,9 +110,44 @@ export class SchemaEditorTable {
         }
       }
     });
+
     if (Array.isArray(this.hotData)) {
       this.hot.loadData(this.hotData);
+      // create meta-data array;
+      let metaData = this.hotData.splice().map(() => null);
     }
+
+    this.hot.addHook("afterSelectionEnd", function(row, col, row2, col2) {
+      let data;
+      let options = `
+        <div id="footnote">
+          <label>Fussnote</label>
+          <input type="text" id="footnoteInput" />
+        </div>
+        <div id="highlight">
+          <label>Highlight</label>
+          <input type="checkbox">
+        </div>
+      `;
+
+      document.getElementById("tableContainerDetails").innerHTML = options;
+      // selcet row
+      if (col === col2 && row2 === this.countRows() - 1) {
+      }
+      // select column
+      if (row === row2 && col2 === this.countCols() - 1) {
+      }
+      // select cell
+      if (col === col2 && row === row2) {
+        data = this.getDataAtCell(row, col);
+        console.log("data: " + data);
+      }
+      // select area
+      if (col !== col2 && row !== row2) {
+      }
+
+      console.log(`row:${row} col:${col} row2:${row2} col2:${col2}`);
+    });
   }
 
   getGridHeight() {

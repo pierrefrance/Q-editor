@@ -40,3 +40,10 @@ schema-editor-table .wtHolder tr:first-child td {
 schema-editor-table .wtHolder tr:last-child td {
   border-bottom-style: dotted;
 }
+
+schema-editor-table #tableContainerDetails {
+  width: 220px;
+  height: 150px;
+  background-color: rbga(199, 199, 199, 0.15);
+  border: 1px solid grey;
+}

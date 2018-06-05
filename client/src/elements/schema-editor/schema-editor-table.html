@@ -2,7 +2,10 @@
   <require from="./schema-editor-table.css"></require>
   <label>
     ${schema["title"]}
-    <div ref="tableContainerElement"></div>
+    <div id="tableContainer">
+      <div ref="tableContainerElement"></div>
+      <div id="tableContainerDetails"></div>
+    </div>
   </label>
   <button-secondary if.bind="options.allowTranspose" click.delegate="transpose()" icon="transpose" style="width: 36px;"></button-secondary>
 </template>
